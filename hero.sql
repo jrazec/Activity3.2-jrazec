@@ -176,7 +176,7 @@ WHERE hero_id=1;
 
 --5     Create new branch named "feat/select-active-players"
 
---Listed the player's names and hero names that they are
+--Listed player's names and hero names that they are
 --actively using (excluding those players that have inactive heroes)
 SELECT
    P.player_name AS “Player Name”,
@@ -185,3 +185,13 @@ FROM player  AS P
 INNER JOIN hero AS H
 ON P.hero_id = H.hero_id
 WHERE H.is_active = true;
+
+--6     Create new branch named "feat/select-heroes-archers"
+
+--Listed heroes' names that are classified as archers
+SELECT 
+    H.hero_name AS “List of Archers” 
+FROM hero AS H
+INNER JOIN class AS C
+ON H.class_id = C.class_id
+WHERE C.class_name LIKE  ‘%Archers%’;
